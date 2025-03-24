@@ -19,11 +19,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKindLegacy.Player, SpriteKindLegacy.Enemy, function (sprite, otherSprite) {
     music.bigCrash.play()
-    scene.cameraShake(4, 500)
-    sprite.destroy(effects.fire, 2000)
-    otherSprite.destroy(effects.fire, 2000)
-    sprite.startEffect(effects.fire, 1000)
-    otherSprite.startEffect(effects.fire, 1000)
+    scene.cameraShake(8, 5000)
+    sprite.startEffect(effects.fire, 5000)
+    otherSprite.startEffect(effects.fire, 5000)
+    sprite.destroy(effects.fire, 100)
+    otherSprite.destroy(effects.fire, 100)
+    music.play(music.melodyPlayable(music.bigCrash), music.PlaybackMode.UntilDone)
+    gameStart = false
+    pause(5000)
+    game.setGameOverMessage(false, "Back To The Flight Deck")
     info.changeLifeBy(-1)
 })
 sprites.onOverlap(SpriteKindLegacy.Projectile, SpriteKindLegacy.Enemy, function (sprite, otherSprite) {
@@ -31,9 +35,6 @@ sprites.onOverlap(SpriteKindLegacy.Projectile, SpriteKindLegacy.Enemy, function 
     sprite.destroy(effects.fire, 1)
     otherSprite.destroy(effects.none, 1)
     info.changeScoreBy(1)
-})
-info.onLifeZero(function () {
-    game.gameOver(false)
 })
 let projectile: Sprite = null
 let EnemyFire: Sprite = null
