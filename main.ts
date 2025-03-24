@@ -19,7 +19,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKindLegacy.Player, SpriteKindLegacy.Enemy, function (sprite, otherSprite) {
     music.bigCrash.play()
-    scene.cameraShake(8, 5000)
+    scene.cameraShake(8, 2000)
     sprite.startEffect(effects.fire, 5000)
     otherSprite.startEffect(effects.fire, 5000)
     sprite.destroy(effects.fire, 100)
