@@ -322,29 +322,6 @@ let spawnSpeed = 3000
 info.setLife(1)
 effects.starField.startScreenEffect()
 forever(function () {
-    if (info.score() == 25) {
-        textAce = textsprite.create("You're an ACE!")
-        textAce.x = 80
-        textAce.y = 20
-        pause(2000)
-        textAce.destroy(effects.ashes, 100)
-    }
-    if (info.score() == 50) {
-        textDoubleAce = textsprite.create("You're a DOUBLE ACE!")
-        textDoubleAce.x = 80
-        textDoubleAce.y = 20
-        pause(2000)
-        textDoubleAce.destroy(effects.ashes, 100)
-    }
-    if (info.score() == 100) {
-        textBaron = textsprite.create("You're a BARON!")
-        textBaron.x = 80
-        textBaron.y = 20
-        pause(2000)
-        textBaron.destroy(effects.ashes, 100)
-    }
-})
-forever(function () {
     for (let index = 0; index < 1; index++) {
         music.playTone(220, music.beat(BeatFraction.Whole))
         music.playTone(220, music.beat(BeatFraction.Whole))
@@ -434,6 +411,29 @@ forever(function () {
         music.playTone(175, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
         music.playTone(262, music.beat(BeatFraction.Triplet))
         music.playTone(220, music.beat(BeatFraction.Double))
+    }
+})
+forever(function () {
+    if (info.score() == 25) {
+        textAce = textsprite.create("You're an ACE!")
+        textAce.x = 80
+        textAce.y = 20
+        pause(2000)
+        textAce.destroy(effects.ashes, 100)
+    }
+    if (info.score() == 50) {
+        textDoubleAce = textsprite.create("You're a DOUBLE ACE!")
+        textDoubleAce.x = 80
+        textDoubleAce.y = 20
+        pause(2000)
+        textDoubleAce.destroy(effects.ashes, 100)
+    }
+    if (info.score() == 100) {
+        textBaron = textsprite.create("You're a BARON!")
+        textBaron.x = 80
+        textBaron.y = 20
+        pause(2000)
+        textBaron.destroy(effects.ashes, 100)
     }
 })
 game.onUpdateInterval(500, function () {
