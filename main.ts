@@ -322,93 +322,6 @@ let spawnSpeed = 3000
 info.setLife(1)
 effects.starField.startScreenEffect()
 forever(function () {
-    for (let index = 0; index < 2; index++) {
-        music.rest(music.beat(BeatFraction.Quarter))
-        music.playTone(294, music.beat(BeatFraction.Half))
-        music.playTone(294, music.beat(BeatFraction.Quarter))
-        music.playTone(294, music.beat(BeatFraction.Quarter))
-        music.playTone(294, music.beat(BeatFraction.Quarter))
-        music.playTone(392, music.beat(BeatFraction.Double))
-        music.playTone(587, music.beat(BeatFraction.Whole))
-        for (let index = 0; index < 2; index++) {
-            music.playTone(523, music.beat(BeatFraction.Eighth))
-            music.playTone(523, music.beat(BeatFraction.Quarter))
-            music.playTone(494, music.beat(BeatFraction.Eighth))
-            music.playTone(494, music.beat(BeatFraction.Quarter))
-            music.playTone(440, music.beat(BeatFraction.Eighth))
-            music.playTone(440, music.beat(BeatFraction.Quarter))
-            music.playTone(784, music.beat(BeatFraction.Double))
-            music.playTone(587, music.beat(BeatFraction.Whole))
-        }
-        music.playTone(523, music.beat(BeatFraction.Eighth))
-        music.playTone(523, music.beat(BeatFraction.Quarter))
-        music.playTone(494, music.beat(BeatFraction.Eighth))
-        music.playTone(494, music.beat(BeatFraction.Quarter))
-        music.playTone(523, music.beat(BeatFraction.Eighth))
-        music.playTone(523, music.beat(BeatFraction.Quarter))
-        music.playTone(440, music.beat(BeatFraction.Double))
-    }
-    music.rest(music.beat(BeatFraction.Quarter))
-    music.playTone(294, music.beat(BeatFraction.Half))
-    music.playTone(294, music.beat(BeatFraction.Quarter))
-    music.playTone(294, music.beat(BeatFraction.Quarter))
-    music.playTone(330, music.beat(BeatFraction.Whole))
-    music.playTone(330, music.beat(BeatFraction.Quarter))
-    music.playTone(330, music.beat(BeatFraction.Half))
-    music.playTone(523, music.beat(BeatFraction.Half))
-    music.playTone(494, music.beat(BeatFraction.Half))
-    music.playTone(440, music.beat(BeatFraction.Half))
-    music.playTone(392, music.beat(BeatFraction.Half))
-    music.playTone(392, music.beat(BeatFraction.Quarter))
-    music.playTone(440, music.beat(BeatFraction.Half))
-    music.playTone(494, music.beat(BeatFraction.Half))
-    music.playTone(440, music.beat(BeatFraction.Half))
-    music.playTone(330, music.beat(BeatFraction.Half))
-    music.playTone(370, music.beat(BeatFraction.Whole))
-    music.rest(music.beat(BeatFraction.Quarter))
-    music.playTone(294, music.beat(BeatFraction.Half))
-    music.playTone(294, music.beat(BeatFraction.Quarter))
-    music.playTone(330, music.beat(BeatFraction.Whole))
-    music.playTone(330, music.beat(BeatFraction.Quarter))
-    music.playTone(330, music.beat(BeatFraction.Half))
-    music.playTone(523, music.beat(BeatFraction.Half))
-    music.playTone(494, music.beat(BeatFraction.Half))
-    music.playTone(440, music.beat(BeatFraction.Half))
-    music.playTone(392, music.beat(BeatFraction.Half))
-    music.playTone(587, music.beat(BeatFraction.Whole))
-    music.playTone(440, music.beat(BeatFraction.Double))
-    music.rest(music.beat(BeatFraction.Quarter))
-    music.playTone(294, music.beat(BeatFraction.Half))
-    music.playTone(294, music.beat(BeatFraction.Quarter))
-    music.playTone(294, music.beat(BeatFraction.Quarter))
-    music.playTone(330, music.beat(BeatFraction.Whole))
-    music.playTone(330, music.beat(BeatFraction.Quarter))
-    music.playTone(330, music.beat(BeatFraction.Half))
-    music.playTone(523, music.beat(BeatFraction.Half))
-    music.playTone(494, music.beat(BeatFraction.Half))
-    music.playTone(440, music.beat(BeatFraction.Half))
-    music.playTone(392, music.beat(BeatFraction.Half))
-    music.playTone(392, music.beat(BeatFraction.Quarter))
-    music.playTone(440, music.beat(BeatFraction.Half))
-    music.playTone(494, music.beat(BeatFraction.Half))
-    music.playTone(440, music.beat(BeatFraction.Half))
-    music.playTone(330, music.beat(BeatFraction.Half))
-    music.playTone(370, music.beat(BeatFraction.Whole))
-    music.rest(music.beat(BeatFraction.Quarter))
-    music.playTone(587, music.beat(BeatFraction.Half))
-    music.playTone(587, music.beat(BeatFraction.Quarter))
-    music.playTone(587, music.beat(BeatFraction.Quarter))
-    music.playTone(784, music.beat(BeatFraction.Half))
-    music.playTone(698, music.beat(BeatFraction.Half))
-    music.playTone(622, music.beat(BeatFraction.Half))
-    music.playTone(587, music.beat(BeatFraction.Half))
-    music.playTone(523, music.beat(BeatFraction.Half))
-    music.playTone(466, music.beat(BeatFraction.Half))
-    music.playTone(440, music.beat(BeatFraction.Half))
-    music.playTone(392, music.beat(BeatFraction.Half))
-    music.playTone(587, music.beat(BeatFraction.Double))
-})
-forever(function () {
     if (info.score() == 25) {
         textAce = textsprite.create("You're an ACE!")
         textAce.x = 80
@@ -429,6 +342,98 @@ forever(function () {
         textBaron.y = 20
         pause(2000)
         textBaron.destroy(effects.ashes, 100)
+    }
+})
+forever(function () {
+    for (let index = 0; index < 1; index++) {
+        music.playTone(220, music.beat(BeatFraction.Whole))
+        music.playTone(220, music.beat(BeatFraction.Whole))
+        music.playTone(220, music.beat(BeatFraction.Whole))
+        music.playTone(175, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(262, music.beat(BeatFraction.Triplet))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(220, music.beat(BeatFraction.Whole))
+        music.playTone(175, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(262, music.beat(BeatFraction.Triplet))
+        music.playTone(220, music.beat(BeatFraction.Double))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(330, music.beat(BeatFraction.Whole))
+        music.playTone(330, music.beat(BeatFraction.Whole))
+        music.playTone(330, music.beat(BeatFraction.Whole))
+        music.playTone(349, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(262, music.beat(BeatFraction.Triplet))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(208, music.beat(BeatFraction.Whole))
+        music.playTone(175, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(262, music.beat(BeatFraction.Triplet))
+        music.playTone(220, music.beat(BeatFraction.Double))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(440, music.beat(BeatFraction.Whole))
+        music.playTone(220, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(220, music.beat(BeatFraction.Triplet))
+        music.playTone(440, music.beat(BeatFraction.Whole))
+        music.playTone(415, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(392, music.beat(BeatFraction.Triplet))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(370, music.beat(BeatFraction.Triplet))
+        music.playTone(349, music.beat(BeatFraction.Triplet))
+        music.playTone(370, music.beat(BeatFraction.Whole))
+        music.playTone(233, music.beat(BeatFraction.Triplet))
+        music.playTone(311, music.beat(BeatFraction.Whole))
+        music.playTone(294, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(277, music.beat(BeatFraction.Triplet))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(262, music.beat(BeatFraction.Triplet))
+        music.playTone(247, music.beat(BeatFraction.Triplet))
+        music.playTone(262, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(175, music.beat(BeatFraction.Triplet))
+        music.playTone(208, music.beat(BeatFraction.Whole) + music.beat(BeatFraction.Triplet))
+        music.playTone(175, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(208, music.beat(BeatFraction.Triplet))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(262, music.beat(BeatFraction.Whole))
+        music.playTone(220, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(262, music.beat(BeatFraction.Triplet))
+        music.playTone(330, music.beat(BeatFraction.Double))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(440, music.beat(BeatFraction.Whole))
+        music.playTone(220, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(220, music.beat(BeatFraction.Triplet))
+        music.playTone(440, music.beat(BeatFraction.Whole))
+        music.playTone(415, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(392, music.beat(BeatFraction.Triplet))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(370, music.beat(BeatFraction.Triplet))
+        music.playTone(349, music.beat(BeatFraction.Triplet))
+        music.playTone(370, music.beat(BeatFraction.Whole))
+        music.playTone(233, music.beat(BeatFraction.Triplet))
+        music.playTone(311, music.beat(BeatFraction.Whole))
+        music.playTone(294, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(277, music.beat(BeatFraction.Triplet))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(262, music.beat(BeatFraction.Triplet))
+        music.playTone(247, music.beat(BeatFraction.Triplet))
+        music.playTone(262, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(175, music.beat(BeatFraction.Triplet))
+        music.playTone(208, music.beat(BeatFraction.Whole) + music.beat(BeatFraction.Triplet))
+        music.playTone(175, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(262, music.beat(BeatFraction.Triplet))
+    }
+    for (let index = 0; index < 1; index++) {
+        music.playTone(220, music.beat(BeatFraction.Whole))
+        music.playTone(175, music.beat(BeatFraction.Triplet) + music.beat(BeatFraction.Triplet))
+        music.playTone(262, music.beat(BeatFraction.Triplet))
+        music.playTone(220, music.beat(BeatFraction.Double))
     }
 })
 game.onUpdateInterval(500, function () {
