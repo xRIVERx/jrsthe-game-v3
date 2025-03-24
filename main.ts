@@ -9,7 +9,7 @@ namespace SpriteKind {
     export const ACE = SpriteKind.create()
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (gameStart == true) {
+    if (gameStart == true && info.life() == 1) {
         greenLaser = sprites.createProjectileFromSprite(assets.image`GreenLaser`, tie, 0, -140)
         greenLaser.startEffect(effects.coolRadial, 100)
         music.playTone(932, music.beat(BeatFraction.Sixteenth))
@@ -18,25 +18,28 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onOverlap(SpriteKindLegacy.Player, SpriteKindLegacy.Enemy, function (sprite, otherSprite) {
+    music.bigCrash.play()
     scene.cameraShake(4, 500)
-    otherSprite.destroy(effects.disintegrate)
-    sprite.destroy(effects.disintegrate)
-    otherSprite.startEffect(effects.fire, 200)
-    sprite.startEffect(effects.fire, 200)
-    pause(500)
+    sprite.destroy(effects.fire, 2000)
+    otherSprite.destroy(effects.fire, 2000)
+    sprite.startEffect(effects.fire, 1000)
+    otherSprite.startEffect(effects.fire, 1000)
     info.changeLifeBy(-1)
 })
 sprites.onOverlap(SpriteKindLegacy.Projectile, SpriteKindLegacy.Enemy, function (sprite, otherSprite) {
     music.smallCrash.play()
-    sprite.destroy()
-    otherSprite.destroy(effects.disintegrate)
+    sprite.destroy(effects.fire, 1)
+    otherSprite.destroy(effects.none, 1)
     info.changeScoreBy(1)
 })
+info.onLifeZero(function () {
+    game.gameOver(false)
+})
+let projectile: Sprite = null
+let EnemyFire: Sprite = null
 let textBaron: TextSprite = null
 let textDoubleAce: TextSprite = null
 let textAce: TextSprite = null
-let projectile: Sprite = null
-let EnemyFire: Sprite = null
 let greenLaser: Sprite = null
 let tie: Sprite = null
 let gameStart = false
@@ -314,12 +317,9 @@ tie = sprites.create(assets.image`Tie Fighter`, SpriteKindLegacy.Player)
 tie.setFlag(SpriteFlag.StayInScreen, true)
 tie.bottom = 120
 controller.moveSprite(tie, 100, 100)
+let spawnSpeed = 3000
 info.setLife(1)
 effects.starField.startScreenEffect()
-game.onUpdateInterval(2000, function () {
-    EnemyFire = sprites.createProjectileFromSprite(projectile2, projectile, 0, 100)
-    EnemyFire.setKind(SpriteKindLegacy.Enemy)
-})
 forever(function () {
     for (let index = 0; index < 2; index++) {
         music.rest(music.beat(BeatFraction.Quarter))
@@ -429,6 +429,10 @@ forever(function () {
         pause(2000)
         textBaron.destroy(effects.ashes, 100)
     }
+})
+game.onUpdateInterval(500, function () {
+    EnemyFire = sprites.createProjectileFromSprite(projectile2, projectile, 0, 100)
+    EnemyFire.setKind(SpriteKindLegacy.Enemy)
 })
 game.onUpdateInterval(500, function () {
     projectile = sprites.createProjectileFromSide(xwing, randint(-20, 20), 75)
